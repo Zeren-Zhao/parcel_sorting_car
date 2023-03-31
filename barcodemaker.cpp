@@ -10,5 +10,5 @@ void main(array<String^>^args){
     Application::SetCompatibleTextRenderingDefault(false);
 
     Barcode::MyForm form;
-    Application::Run(%from);
+    Application::Run(%form);
 }
