@@ -1,35 +1,58 @@
 #include <wiringPi.h>
+#include <iostream>
 
-#define IN1 5
-#define IN2 6
-#define IN3 13
-#define IN4 19
+class L298N{
+    private:
+        int in1, in2, in3, in4; //enA, enB
+    public:
+        L298N(int in1_pin, int in2_pin, int in3_pin, int in4_pin){//int enA_pin, int enB_pin, 
+            //enA = enA_pin;
+            //enB = enB_pin;
+            in1 = in1_pin;
+            in2 = in2_pin;
+            in3 = in3_pin;
+            in4 = in4_pin;
+            //pinmode(enA, output);
+            //pinmode(enB, output);
+            pinMode(in1, OUTPUT);
+            pinMode(in2, OUTPUT);
+            pinMode(in3, OUTPUT);
+            pinMode(in4, OUTPUT);
+        }
+        
+        void turnleft(){
+            digitalWrite(in1, LOW);
+            digitalWrite(in2, HIGH);
+            digitalWrite(in3, HIGH);
+            digitalWrite(in4, LOW);
+            //analogWrite(enA, 255);
+            //analogwrite(enB, 255);
+        }
+        
+        void straight(){
+            digitalWrite(in1, LOW);
+            digitalWrite(in2, HIGH);
+            digitalWrite(in3, LOW);
+            digitalWrite(in4, HIGH);
+        }
+        
+        void turnRight(){
+            digitalWrite(in1, HIGH);
+            digitalWrite(in2, LOW);
+            digitalWrite(in3, LOW);
+            digitalWrite(in4, HIGH);
+        }
+};
 
-int main()
-{
-    // 初始化WiringPi库
+int main(){
+    
     wiringPiSetup();
-
-    // 配置GPIO引脚为输出模式
-    pinMode(IN1, OUTPUT);
-    pinMode(IN2, OUTPUT);
-    pinMode(IN3, OUTPUT);
-    pinMode(IN4, OUTPUT);
-
-    // 设置电机方向和速度
-    digitalWrite(IN1, HIGH);
-    digitalWrite(IN2, LOW);
-    digitalWrite(IN3, HIGH);
-    digitalWrite(IN4, LOW);
-
-    // 延时一段时间
+    L298N driver(26, 29, 12, 16);
+    
+    driver.turnleft();
     delay(1000);
 
-    // 停止电机
-    digitalWrite(IN1, LOW);
-    digitalWrite(IN2, LOW);
-    digitalWrite(IN3, LOW);
-    digitalWrite(IN4, LOW);
-
+    
+    std::cout <<"hello" << std::endl;
     return 0;
 }
