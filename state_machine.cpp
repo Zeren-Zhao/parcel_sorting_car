@@ -56,6 +56,7 @@ void StateMachine::run() {
 void StateMachine::scanState() {
     cout << "当前状态：扫描二维码" << endl;
     a = 0;
+    DetectQR(); //调用检测二维码的函数
     currentState = DECIDE;
 }
 
