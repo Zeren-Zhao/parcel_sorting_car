@@ -24,9 +24,9 @@ private:
 
 
     int a = 0; // 参数a
-    int current_pos[2], goal_pos[2];//小车的现在位置以及目标位置
-    int car1[2], car2[2], car3[2];//三个目的地的位置
-    int source[2];//取货处
+    int current_pos[2], goal_pos[2];//小车的现在位置以及目标位置（x, y）
+    int car1[2], car2[2], car3[2];//三个目的地的位置（x, y）
+    int source[2];//取货处（x, y）
 
     void scanState(); // 扫描二维码状态
     void navigationState(); // 路径规划状态
