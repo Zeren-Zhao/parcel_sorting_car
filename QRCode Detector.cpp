@@ -14,7 +14,7 @@ void DetectQR()
     VideoCapture cap(0);
     if (!cap.isOpened()) {
         cerr << "Failed to open the camera." << endl;
-        return -1;
+        return;
     }
     
     namedWindow("QRCode Detector", cv::WINDOW_NORMAL);
