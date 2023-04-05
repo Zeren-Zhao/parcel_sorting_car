@@ -53,11 +53,6 @@ int main(int argc, char* argv[])
                 outfile << symbol->get_data() << endl;
                 outfile.close();
 
-                // Save the QR code image to file
-                string filename = "qrcode_" + to_string(time(nullptr)) + ".jpg";
-                imwrite(filename, frame);
-                cout << "Saved QR code image to file: " << filename << endl;
-
                 // Add the scanned QR code to the set
                 scanned_qrcodes.insert(symbol->get_data());
             }
