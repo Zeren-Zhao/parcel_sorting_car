@@ -8,13 +8,13 @@ using namespace std;
 using namespace cv;
 using namespace zbar;
 
-void DetectQR()
+string DetectQR()
 {
     // Open the camera
     VideoCapture cap(0);
     if (!cap.isOpened()) {
         cerr << "Failed to open the camera." << endl;
-        return;
+        return "";
     }
     
     namedWindow("QRCode Detector", cv::WINDOW_NORMAL);
@@ -56,6 +56,7 @@ void DetectQR()
 
                 // Add the scanned QR code to the set
                 scanned_qrcodes.insert(symbol->get_data());
+                return symbol->get_data();//Return the scanned QR code content
             }
         }
 
@@ -67,5 +68,6 @@ void DetectQR()
             break;
         }
     }
+    return "";//Return empty string if no QR code is scanned
 }
 
