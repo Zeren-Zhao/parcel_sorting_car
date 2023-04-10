@@ -1,6 +1,6 @@
 #include <iostream>
 #include <string>
-#include <windows.h>
+//#include <windows.h>
 #include <fstream>
 #include <unordered_set>
 #include <zbar.h>
@@ -43,7 +43,7 @@ private:
     void decideState();//决定状态（目的地是哪：car1， car2， car3， source）
 };
 
-int move(){
+/*int move(){
     Sleep(1000);
     cout << "1 STEP" << endl;
     return 0;
@@ -53,7 +53,7 @@ int turn(){
     cout << "Turning" << endl;
     Sleep(1000);
     return 0;
-}
+}*/
 
 string DetectQR()
 {
@@ -163,7 +163,7 @@ void StateMachine::navigationState() {
     cout << y << endl;
     start = clock();
     if (a == 0){
-        for(int i = 0;i < y; i++){
+        /*for(int i = 0;i < y; i++){
             move();
         }
         turn();
@@ -173,7 +173,7 @@ void StateMachine::navigationState() {
         turn();
         stop = clock();
         duration = ((double)(stop - start))/CLK_TCK;
-        cout << "Time cost:"<< duration << endl << endl;
+        cout << "Time cost:"<< duration << endl << endl;*/
         currentState = DISCHARGE;}
     else{
         currentState = SCAN;}
