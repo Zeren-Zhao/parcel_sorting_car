@@ -53,15 +53,21 @@ public:
         digitalWrite(in2, LOW);
         digitalWrite(in3, LOW);
         digitalWrite(in4, HIGH);
+        
+    void stop(){
+        digitalWrite(in1, LOW);
+        digitalWrite(in2, LOW);
+        digitalWrite(in3, LOW);
+        digitalWrite(in4, LOW);
     }
 };
 
 class StateMachine {
 public:
 
-    void run(); // ÔËĞĞ×´Ì¬»ú
+    void run(); // è¿è¡ŒçŠ¶æ€æœº
 
-    //´ÓÍâ²¿¸üĞÂprivateÖĞµÄÊı¾İ
+    //ä»å¤–éƒ¨æ›´æ–°privateä¸­çš„æ•°æ®
     StateMachine(int car_pos1[2], int car_pos2[2], int car_pos3[2], int source_pos[2]){
         for (int i = 0; i < 2; i++) {
             car1[i] = car_pos1[i];
@@ -73,31 +79,21 @@ public:
     };
 
 private:
-    enum State { SCAN, NAVIGATION, DISCHARGE, DECIDE }; // ×´Ì¬ÀàĞÍ
-    State currentState; // µ±Ç°×´Ì¬
+    enum State { SCAN, NAVIGATION, DISCHARGE, DECIDE }; // çŠ¶æ€ç±»å‹
+    State currentState; // å½“å‰çŠ¶æ€
 
 
-    int a = 0; // ²ÎÊıa
-    int current_pos[2], goal_pos[2];//Ğ¡³µµÄÏÖÔÚÎ»ÖÃÒÔ¼°Ä¿±êÎ»ÖÃ£¨x, y£©
-    int car1[2], car2[2], car3[2];//Èı¸öÄ¿µÄµØµÄÎ»ÖÃ£¨x, y£©
-    int source[2];//È¡»õ´¦£¨x, y£©
+    int a = 0; // å‚æ•°a
+    int current_pos[2], goal_pos[2];//å°è½¦çš„ç°åœ¨ä½ç½®ä»¥åŠç›®æ ‡ä½ç½®ï¼ˆx, yï¼‰
+    int car1[2], car2[2], car3[2];//ä¸‰ä¸ªç›®çš„åœ°çš„ä½ç½®ï¼ˆx, yï¼‰
+    int source[2];//å–è´§å¤„ï¼ˆx, yï¼‰
     string location = "G1 0QA";
 
-    void scanState(); // É¨Ãè¶şÎ¬Âë×´Ì¬
-    void navigationState(); // Â·¾¶¹æ»®×´Ì¬
-    void dischargeState(); // Ğ¶»õ×´Ì¬
-    void decideState();//¾ö¶¨×´Ì¬£¨Ä¿µÄµØÊÇÄÄ£ºcar1£¬ car2£¬ car3£¬ source£©
+    void scanState(); // æ‰«æäºŒç»´ç çŠ¶æ€
+    void navigationState(); // è·¯å¾„è§„åˆ’çŠ¶æ€
+    void dischargeState(); // å¸è´§çŠ¶æ€
+    void decideState();//å†³å®šçŠ¶æ€ï¼ˆç›®çš„åœ°æ˜¯å“ªï¼šcar1ï¼Œ car2ï¼Œ car3ï¼Œ sourceï¼‰
 };
-
-int move(){
-    cout << "1 STEP" << endl;
-    return 0;
-}
-
-int turn(){
-    cout << "Turning" << endl;
-    return 0;
-}
 
 void StateMachine::run() {
     while (true) {
@@ -121,7 +117,7 @@ void StateMachine::run() {
 void StateMachine::scanState() {
     cout << "State: Scanning" << endl;
     a = 0;
-    //DetectQR(); //µ÷ÓÃ¼ì²â¶şÎ¬ÂëµÄº¯Êı
+    //DetectQR(); //è°ƒç”¨æ£€æµ‹äºŒç»´ç çš„å‡½æ•°
     currentState = DECIDE;
 }
 
@@ -130,7 +126,7 @@ void StateMachine::dischargeState() {
     a = 1;
     current_pos[0] = goal_pos[0];
     current_pos[1] = goal_pos[1];
-    currentState = NAVIGATION; //ĞÂµÄ×´Ì¬
+    currentState = NAVIGATION; //æ–°çš„çŠ¶æ€
 }
 
 void StateMachine::navigationState() {
@@ -146,27 +142,35 @@ void StateMachine::navigationState() {
 
             driver.retreat();
             delay(1000);
+            stop();
         }
         else{
             driver.forward();
-            delay(1000)
+            delay(1000);
+            stop();
         }
 
         if(current_pos[1] >= goal_pos[1]) {
             driver.left();
             delay(1000);
+            stop();
             driver.forward();
             delay(1000);
+            stop();
             driver.right();
             delay(1000);
+            stop();
         }
         else {
             driver.right();
             delay(1000);
+            stop();
             driver.forward();
             delay(1000);
+            stop();
             driver.left();
             delay(1000);
+            stop();
         }
         currentState = DISCHARGE;}
     else{
@@ -231,8 +235,8 @@ int main() {
 
     car_pos3[0] = 3;
     car_pos3[1] = 0;
-    StateMachine sm(car_pos1, car_pos2, car_pos3, source_pos); // ÊµÀı»¯×´Ì¬»úcar_pos1, car_pos2, car_pos3, source_pos
-    sm.run(); // ÔËĞĞ×´Ì¬»ú
+    StateMachine sm(car_pos1, car_pos2, car_pos3, source_pos); // å®ä¾‹åŒ–çŠ¶æ€æœºcar_pos1, car_pos2, car_pos3, source_pos
+    sm.run(); // è¿è¡ŒçŠ¶æ€æœº
 
     return 0;
 }
