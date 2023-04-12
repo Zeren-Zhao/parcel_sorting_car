@@ -142,35 +142,35 @@ void StateMachine::navigationState() {
 
             driver.retreat();
             delay(1000);
-            stop();
+            driver.stop();
         }
         else{
             driver.forward();
             delay(1000);
-            stop();
+            driver.stop();
         }
 
         if(current_pos[1] >= goal_pos[1]) {
             driver.left();
             delay(1000);
-            stop();
+            driver.stop();
             driver.forward();
             delay(1000);
-            stop();
+            driver.stop();
             driver.right();
             delay(1000);
-            stop();
+            driver.stop();
         }
         else {
             driver.right();
             delay(1000);
-            stop();
+            driver.stop();
             driver.forward();
             delay(1000);
-            stop();
+            driver.stop();
             driver.left();
-            delay(1000);
-            stop();
+            driver.delay(1000);
+            driver.stop();
         }
         currentState = DISCHARGE;}
     else{
