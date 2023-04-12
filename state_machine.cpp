@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include <unordered_set>
+
 using namespace std;
 
 class StateMachine {
@@ -8,7 +10,7 @@ public:
     void run(); // 运行状态机
 
     //从外部更新private中的数据
-    StateMachine(int car_pos1[2], int car_pos2[2], int car_pos3[2], int source_pos[2]){
+    StateMachine(int car_pos1[2], int car_pos2[2], int car_pos3[2], int source_pos[2], int& current_1, int& current_2, string& location):current_1(current_1),current_2(current_2),location(location){
         for (int i = 0; i < 2; i++) {
             car1[i] = car_pos1[i];
             car2[i] = car_pos2[2];
@@ -19,14 +21,21 @@ public:
     };
 
 private:
+
+    bool stopFlag = false;
+
+    int& current_1;
+    int& current_2;
+    string& location;
+
     enum State { SCAN, NAVIGATION, DISCHARGE, DECIDE }; // 状态类型
     State currentState; // 当前状态
 
 
     int a = 0; // 参数a
-    int current_pos[2], goal_pos[2];//小车的现在位置以及目标位置（x, y）
-    int car1[2], car2[2], car3[2];//三个目的地的位置（x, y）
-    int source[2];//取货处（x, y）
+    int current_pos[2], goal_pos[2];//小车的现在位置以及目标位置
+    int car1[2], car2[2], car3[2];//三个目的地的位置
+    int source[2];//取货处
 
     void scanState(); // 扫描二维码状态
     void navigationState(); // 路径规划状态
@@ -35,7 +44,7 @@ private:
 };
 
 void StateMachine::run() {
-    while (true) {
+    while (!stopFlag) {
         switch (currentState) {
             case SCAN:
                 scanState();
@@ -56,7 +65,6 @@ void StateMachine::run() {
 void StateMachine::scanState() {
     cout << "当前状态：扫描二维码" << endl;
     a = 0;
-    DetectQR(); //调用检测二维码的函数
     currentState = DECIDE;
 }
 
@@ -68,15 +76,20 @@ void StateMachine::dischargeState() {
 
 void StateMachine::navigationState() {
     cout << "当前状态：导航" << endl;
-    cout << a << endl;
     if (a == 0){
         currentState = DISCHARGE;}
     else{
+        current_1 = 0;
+        current_2 = 0;
+        location = "";
+        stopFlag = true;
         currentState = SCAN;}   
 }
 
 void StateMachine::decideState() {
     cout << "当前状态：决定" << endl;
+    current_1 = 1;
+    current_2 = 1;
     if (a==1){
         for (int i = 0; i < 2; i++) {
             goal_pos[i] = source[i];
@@ -87,23 +100,7 @@ void StateMachine::decideState() {
             goal_pos[i] = car1[i];
         } 
     }
-    cout << goal_pos[1] << endl;
     currentState = NAVIGATION;
 }
 
-int main() {
-    int source_pos[2], car_pos1[2], car_pos2[2], car_pos3[2];
-    source_pos[0] = 5;
-    source_pos[1] = 1;
-    car_pos1[0] = 10;
-    car_pos1[1] = 10;
-    car_pos2[0] = 5;
-    car_pos2[1] = 10;
-    car_pos3[0] = 0;
-    car_pos3[1] = 10;
 
-    StateMachine sm(car_pos1, car_pos2, car_pos3, source_pos); // 实例化状态机car_pos1, car_pos2, car_pos3, source_pos
-    sm.run(); // 运行状态机
-
-    return 0;
-}
