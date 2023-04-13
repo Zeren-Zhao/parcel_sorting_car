@@ -1,9 +1,5 @@
-//
-// Created by apple on 2023/4/13.
-//
-
-#ifndef TEST2_QRCODESCANNER_H
-#define TEST2_QRCODESCANNER_H
+#ifndef QRCODESCANNER_H
+#define QRCODESCANNER_H
 
 #pragma once
 
@@ -19,4 +15,4 @@ private:
 };
 
 
-#endif //TEST2_QRCODESCANNER_H
+#endif //QRCODESCANNER_H
