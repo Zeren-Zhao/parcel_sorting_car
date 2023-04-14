@@ -8,6 +8,10 @@ With the rapid development of e-commerce business, the courier industry has also
 
 </div>
 
+## Project Description
+
+Our project is to develop a parcel sorting car based on Raspberry Pi 3B, which aims to achieve the initial regional sorting of parcels. The project uses a camera for QR code recognition, and after it scans the parcel identification code it makes a determination of the area it is going to, and then navigates to the area where the parcel needs to be unloaded based on the coordinates of its current location. After reaching the area, it performs the unloading operation. After the action is executed, it reverts back to the starting point to wait for the next parcel to be scanned.
+
 ## Project Contributers
 <div align="center">
 
@@ -15,7 +19,7 @@ With the rapid development of e-commerce business, the courier industry has also
 | -------------- | ---------| -----------|
 | Shiguang Liu   | 2737887L |Decision, Navigation Designer | 
 | Zeren Zhao     | 2759260Z |Structure & Control Designer  |
-| Zhuohang Zhang | 2752741z |QR Code Function Designer     |
+| Zhuohang Zhang | 2752741Z |QR Code Function Designer     |
 | Zeren Zhao     | 2759260Z |Unloading Function Designer   |
 
 </div>
