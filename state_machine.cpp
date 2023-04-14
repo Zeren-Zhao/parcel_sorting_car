@@ -4,8 +4,13 @@
 #include <thread>
 #include <cstdlib>
 #include "control.cpp"
+#include <softPwm.h>
 
+#define PIN 15 
 using namespace std;
+
+
+
 
 void wait_time(unsigned int milliseconds)
 {
@@ -13,22 +18,44 @@ void wait_time(unsigned int milliseconds)
     struct timeval timeout;
     int ret;
 
-    //Build a empty file
+    // 创建一个空的文件描述符集合
     FD_ZERO(&fds);
 
-    // Set the time for delay
+    // 设置超时时间为1秒
     timeout.tv_sec = 0;
     timeout.tv_usec = milliseconds*1000;
 
-    // Wait for file be readable
+    // 等待超时或文件描述符变为可读
     ret = select(0, NULL, NULL, &fds, &timeout);
 
-    // if return = 0 means overtime
+    // 如果返回0表示已经超时
     if (ret == 0) {
         printf("Delay for %d ms.\n", milliseconds);
     } else if (ret == -1) {
         printf("Delay failed.\n");
     }
+}
+
+int discharge()
+{
+    if (wiringPiSetup() == -1) {
+        return 1;
+    }
+
+    softPwmCreate(PIN, 0, 100); 
+
+    for (int i = 0; i <= 70; i++) {
+        softPwmWrite(PIN, i);
+        wait_time(20); 
+    }
+
+
+    for (int i = 70; i >= 0; i--) {
+        softPwmWrite(PIN, i);
+        wait_time(20); 
+    }
+
+    return 0;
 }
 
 class StateMachine {
@@ -98,6 +125,7 @@ void StateMachine::scanState() {
 
 void StateMachine::dischargeState() {
     cout << "discharge" << endl;
+    discharge();
     a = 1;
     currentState = DECIDE; //新的状态
 }
@@ -111,7 +139,7 @@ void StateMachine::navigationState() {
     int x,y,turn;
     x = abs(goal_pos[0]-current_1)*500;
     y = abs(goal_pos[1]-current_2)*500;
-    turn = 480;
+    turn = 470;
     cout << x << endl;
     cout << y << endl;
     
