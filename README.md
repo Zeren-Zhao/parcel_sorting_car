@@ -16,6 +16,15 @@ Our project is to develop a parcel sorting car based on `Raspberry Pi 3B`, which
 - Navigation of Sorting Car: Navigation based on destination coordinates and starting position coordinates
 - Unloading function:Interrupt navigation when you reach your destination and drive servo to perform unloading operations
 
+## Installation
+
+```
+graph TD
+    A[Scan] -->B(Go Shopping)
+
+```
+## System Flow Chart
+
 ## Project Contributers
 <div align="center">
 
