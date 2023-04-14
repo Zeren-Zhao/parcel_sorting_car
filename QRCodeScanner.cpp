@@ -6,20 +6,21 @@
 
 
 
-
 using namespace std;
 using namespace cv;
 using namespace zbar;
 
 class QRCodeScanner {
 public:
-    QRCodeDetector(int camera_index = 0) : camera_index_(camera_index) {}
+    using Callback = std::function<void(const std::string&)>;
 
-    string DetectQR() {
+    QRCodeScanner(int camera_index = 0) : camera_index_(camera_index) {}
+
+    void DetectQR(const Callback& callback) {
         VideoCapture cap(camera_index_);
         if (!cap.isOpened()) {
             cerr << "Failed to open the camera." << endl;
-            return "";
+            return;
         }
 
         namedWindow("QRCode Detector", cv::WINDOW_NORMAL);
@@ -50,7 +51,9 @@ public:
                     outfile.close();
 
                     scanned_qrcodes.insert(symbol->get_data());
-                    return symbol->get_data();
+
+                    // 调用回调函数
+                    callback(symbol->get_data());
                 }
             }
 
@@ -61,8 +64,6 @@ public:
                 break;
             }
         }
-
-        return "";
     }
 
 private:
