@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.24)
-project(test2)
+project(final_try)
 
 set(CMAKE_CXX_STANDARD 11)
 
