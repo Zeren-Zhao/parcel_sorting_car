@@ -29,17 +29,18 @@ int main() {
     QRCodeScanner detector(0);
     StateMachine machine(car_pos1, car_pos2, car_pos3, source_pos, current_1, current_2, location);
 
+    auto callback = [&](const std::string& info) {
+        if (current_1 == 0 && current_2 == 0 && location.empty()) {
+            std::lock_guard<std::mutex> lock(mtx);
+            location = info;
+            cout << "cao" << endl;
+        }
+    };
+
     std::thread threadA([&]() {
-        while(true){
-
-            std::string info = detector.DetectQR();
-
-            // 当car[2] == {1, 1}并且字符串loc == “”时赋给字符串loc
-            if (current_1 == 0 && current_2 == 0 && location.empty()) {
-                std::lock_guard<std::mutex> lock(mtx);
-                location = info;
-                cout << "cao" << endl;
-        }}
+        while (true) {
+            detector.DetectQR(callback);
+        }
     });
 
     std::thread threadB([&]() {
