@@ -1,3 +1,15 @@
+#include <iostream>
+#include <fstream>
+#include <unordered_set>
+#include <zbar.h>
+#include <opencv2/opencv.hpp>
+
+
+
+using namespace std;
+using namespace cv;
+using namespace zbar;
+
 class QRCodeScanner {
 public:
     using Callback = std::function<void(const std::string&)>;
