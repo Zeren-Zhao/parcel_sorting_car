@@ -23,6 +23,12 @@ graph TD
     A[Scan] -->B(Go Shopping)
 
 ```
+
+### Enviromental Check
+```
+sudo spt-get update
+sudo apt-get install libopencv-dev libzbar-dev
+```
 ## System Flow Chart
 
 ## Project Contributers
