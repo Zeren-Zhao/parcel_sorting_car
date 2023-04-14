@@ -33,6 +33,6 @@ graph TD
 | Shiguang Liu   | 2737887L |Decision, Navigation Designer | 
 | Zeren Zhao     | 2759260Z |Structure & Control Designer  |
 | Zhuohang Zhang | 2752741Z |QR Code Function Designer     |
-| Zeren Zhao     | 2759260Z |Unloading Function Designer   |
+| Zeyu Zhang     | 2641089Z |Unloading Function Designer   |
 
 </div>
