@@ -7,13 +7,29 @@
 
 using namespace std;
 
-void wait_time(int ms) {
-    std::thread t([ms]() {
-        std::this_thread::sleep_for(std::chrono::milliseconds(ms));
-    });
-    t.join();
-}
+void wait_time(unsigned int milliseconds)
+{
+    fd_set fds;
+    struct timeval timeout;
+    int ret;
 
+    //Build a empty file
+    FD_ZERO(&fds);
+
+    // Set the time for delay
+    timeout.tv_sec = 0;
+    timeout.tv_usec = milliseconds*1000;
+
+    // Wait for file be readable
+    ret = select(0, NULL, NULL, &fds, &timeout);
+
+    // if return = 0 means overtime
+    if (ret == 0) {
+        printf("Delay for %d ms.\n", milliseconds);
+    } else if (ret == -1) {
+        printf("Delay failed.\n");
+    }
+}
 
 class StateMachine {
 public:
