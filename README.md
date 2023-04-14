@@ -8,8 +8,8 @@ With the rapid development of e-commerce business, the courier industry has also
 
 ## Project Description
 
-Our project is to develop a parcel sorting car based on **Raspberry Pi 3B**, which aims to achieve the initial regional sorting of parcels. The project uses a **camera** for QR code recognition, and after it scans the parcel identification code it makes a determination of the area it is going to, and then navigates to the area where the parcel needs to be unloaded based on the coordinates of its current location.The location information will be obtained based on the statistics of the **timer threads**. After reaching the area, it performs the unloading operation. After the action is executed, it reverts back to the starting point to wait for the next parcel to be scanned.
-
+Our project is to develop a parcel sorting car based on ''Raspberry Pi 3B**, which aims to achieve the initial regional sorting of parcels. The project uses a **camera** for QR code recognition, and after it scans the parcel identification code it makes a determination of the area it is going to, and then navigates to the area where the parcel needs to be unloaded based on the coordinates of its current location.The location information will be obtained based on the statistics of the **timer threads**. After reaching the area, it performs the unloading operation. After the action is executed, it reverts back to the starting point to wait for the next parcel to be scanned.
+`linux` `网络编程` `socket` `epoll`
 ## Project Contributers
 <div align="center">
 
