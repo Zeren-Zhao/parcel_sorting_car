@@ -16,6 +16,7 @@ Our project is to develop a parcel sorting car based on `Raspberry Pi 3B`, which
 ## Features
 
 - QR code scanning and information extraction： Obtain the infrmation in QR code
+- Decision making: Determine destination location based on information
 - Navigation of Sorting Car: Navigation based on destination coordinates and starting position coordinates
 - Unloading function:Interrupt navigation when you reach your destination and drive servo to perform unloading operations
 
