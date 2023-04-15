@@ -36,9 +36,9 @@ int discharge()
 class StateMachine {
 public:
 
-    void run(); // 运行状态机
+    void run(); // Run the state machine
 
-    //从外部更新private中的数据
+    //Update the data in private from outside
     StateMachine(int car_pos1[2], int car_pos2[2], int car_pos3[2], int source_pos[2], int& current_1, int& current_2, string& location):current_1(current_1),current_2(current_2),location(location){
         for (int i = 0; i < 2; i++) {
             car1[i] = car_pos1[i];
@@ -61,7 +61,7 @@ private:
     State currentState; // Current state
 
 
-    int a = 0; // 参数a
+    int a = 0; // Record the situation number 'a'
     int current_pos[2], goal_pos[2];//Current position & Goal position of the car
     int car1[2], car2[2], car3[2];//Coordinates of the three target locations
     int source[2];//取货处
