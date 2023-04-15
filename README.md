@@ -36,13 +36,14 @@ sudo apt-get install libopencv-dev libzbar-dev
 ## System Flow Chart
 ![Image text](https://raw.github.com/Zeren-Zhao/parcel_sorting_car/main/Images/Connection.png)
 ## Project Contributers
-<div align="center">
+
+
 
 | Name | Student ID | Role |
 | -------------- | ---------| -----------|
 | [Shiguang Liu](https://github.com/Shiguang2737887?tab=overview&from=2023-01-01&to=2023-01-31)| 2737887L |Decision, Navigation & unloading function Designer | 
-| [Zeren Zhao](https://github.com/ZerenZhao)     | 2759260Z |Structure & Control Designer                       |
-| [Zhuohang Zhang](https://github.com/ZhuohangZhang)| 2752741Z |QR Code Function Designer                          |
+| [Zeren Zhao](https://github.com/ZerenZhao)     | 2759260Z |Structure & Control Designer                |
+| [Zhuohang Zhang](https://github.com/ZhuohangZhang)| 2752741Z |QR Code Function Designer                |
 | [Zeyu Zhang](https://github.com/zeu1)   | 2641089Z |Proposals and procurement management               |
 
 
@@ -52,6 +53,6 @@ sudo apt-get install libopencv-dev libzbar-dev
 [<img src="https://camo.githubusercontent.com/451c9e00b3f8c9b6c15d4708d9c6293766e9766345a206114a135e4a597847b6/68747470733a2f2f7265732e636c6f7564696e6172792e636f6d2f6478737479337374362f696d6167652f75706c6f61642f76313634393339353835392f626c696e642d6e61762d73797374656d2f69636f6e73382d696e7374616772616d2d34385f6b356b7577692e706e67">](https://www.instagram.com/gardendefender_info/)
 [<img src="https://camo.githubusercontent.com/e1aebb8e5b3c1fcaf7c9372d909c10dc1fe81b63f88c786ae15e78b65bd961dd/68747470733a2f2f7265732e636c6f7564696e6172792e636f6d2f6478737479337374362f696d6167652f75706c6f61642f76313634393339353835392f626c696e642d6e61762d73797374656d2f69636f6e73382d796f75747562652d34385f6b70616c6c392e706e67">](https://www.youtube.com/@gardendefender)
 [<img src="https://camo.githubusercontent.com/25a57ba7684d613af975d1270cc992490103b9472e8ffaa85a28b10925d9ba7e/68747470733a2f2f7265732e636c6f7564696e6172792e636f6d2f6478737479337374362f696d6167652f75706c6f61642f76313634393339353835392f626c696e642d6e61762d73797374656d2f69636f6e73382d747769747465722d34385f70743469637a2e706e67">](https://twitter.com/garden_defender)
-[<img src="https://user-images.githubusercontent.com/71940725/229294685-eee9c9a3-4d63-4785-b5a5-9edc586ef4b6.png">](https://www.tiktok.com/@gardendefenderinfo)
+
 [<img src="https://user-images.githubusercontent.com/56697327/229308058-92dbd6a5-40c9-4143-af38-86583202f425.png">](https://www.facebook.com/profile.php?id=100091941216976)
 
