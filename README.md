@@ -38,7 +38,27 @@ make
 ./final_try
 ```
 ## Build
-Please go: https://github.com/Zeren-Zhao/parcel_sorting_car/wiki/1.-Build
+### Components
+|Name              |Cost |Amount|Total|Link |
+|------------------|-----|------|-----|-----|
+|Raspberry Pi 3B   |     |  1   |     |                                                                               |
+|Raspberry Pi Camera Module| 8.59|1|8.59|https://www.amazon.co.uk/Raspberry-Camera-KEYESTUDIO-Vision-Module/dp/B073RCXGQS/ref=sxin_16_pa_sp_search_thematic_sspa?content-id=amzn1.sym.8a568856-906e-49e2-9994-a7e0ba8118ab%3Aamzn1.sym.8a568856-906e-49e2-9994-a7e0ba8118ab&crid=2FIEZIGDXZZRM&cv_ct_cx=pi%2Bcamera&keywords=pi%2Bcamera&pd_rd_i=B073RCXGQS&pd_rd_r=e7c70e0b-5c0e-4bf9-8370-cf5d8c94d9a1&pd_rd_w=adFcw&pd_rd_wg=63SlJ&pf_rd_p=8a568856-906e-49e2-9994-a7e0ba8118ab&pf_rd_r=3EEEV73AX77CC48F976T&qid=1681570005&sbo=RZvfv%2F%2FHxDF%2BO5021pAnSA%3D%3D&sprefix=pi%2Bca%2Caps%2C85&sr=1-1-1c12e6fc-61d1-41ee-8e02-a6ca5f2da604-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9zZWFyY2hfdGhlbWF0aWM&th=1|
+|L298N motor driver|5.39 |  1   |5.39 |https://www.amazon.co.uk/dp/B07GF2MK4Z?psc=1&ref=ppx_yo2ov_dt_b_product_details|
+|TT motor with Plastic Tire Wheels|2.15|2|4.30|https://www.amazon.co.uk/AEDIKO-Motor-Gearbox-Shaft-200RPM/dp/B09V7QH1S8/ref=sr_1_7?keywords=tt%2Bmotor&qid=1681569618&sr=8-7&th=1|
+|SG90 servo motor| 3.00|1|3.00|https://www.amazon.co.uk/Servomotor-Geared-include-Flugzeug-Modellbau/dp/B0BN82DX5D/ref=sr_1_1_sspa?crid=1WC6ZE2KE9YM6&keywords=sg90%2Bservo&qid=1681569796&sprefix=sg90%2Caps%2C83&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1|
+|Power bank| |1|||
+|DuPont thread||severval|||
+|Acrylic sheet||1|||
+|Universal Wheel||several|||
+|6-12v Power supply||1|||
+### Tools
+1. Insulation tape
+2. Tweezers
+3. Glue for plastic parts
+4. Phillips screwdrivers
+5. Scissors
+### Connection Diagram
+![Image text](https://raw.github.com/Zeren-Zhao/parcel_sorting_car/main/Images/wiring.png)
 
 ## Software Structure
 
