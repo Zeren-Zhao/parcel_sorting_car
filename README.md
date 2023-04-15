@@ -21,22 +21,59 @@ Our project is to develop a parcel sorting car based on `Raspberry Pi 3B`, which
 - Navigation of Sorting Car: Navigation based on destination coordinates and starting position coordinates
 - Unloading function:Interrupt navigation when you reach your destination and drive servo to perform unloading operations
 
-## Installation
-
-1.Get the update and install the opencv and zbar libraries
+## Required packages:
+- Raspberry Pi OS 32bit (previously called Raspbian): https://www.raspberrypi.com/software/
+- Cmake: https://cmake.org/download/
+- OpenCV for C++: https://opencv.org/
+- zbar: https://github.com/ZBar/ZBar
+- wiringPi: http://wiringpi.com/wiringpi-updated-for-the-pi-v3plus/
+### Installing Raspberry Pi OS:
+1. Download package.
+2. Install Raspberry Pi OS on your PC.
+3. Insert SD card into your PC.
+4. Open Raspberry Pi Imager.
+5. In Operating system select: Raspberry Pi OS (32-bit)
+6. In Storage select your SD card.
+7. Select setting and add your WIFI name (SSID) and password.
+8. Finally, click on Write.
+### Installing CMake:
+1. Open terminal
+2. Installation
 ```
-sudo spt-get update
-sudo apt-get install libopencv-dev libzbar-dev
+sudo apt-get install cmake
 ```
-2.Compile source files with Cmake
+### Installing Opencv
+1. Open terminal
+2. Download OpenCV from Official website
+3. Extract all
+4. Open terminal and use ``cd`` go to the opencv directory
+5. Create a new build folder for building
 ```
 mkdir build
 cd build
-cp /path/to/CMakeLists.txt .
-cmake ..
-make
-./final_try
 ```
+6. Compilation
+```
+cmake ..
+sudo make
+sudo make install
+```
+``sudo make`` is very time consuming, about five to six hours depending on the internet speed.
+### Installing zbar
+1. Open terminal
+2. Installation
+```
+sudo apt-get install libzbar-dev
+```
+### Installing wiringPi
+1. Open terminal
+2. Installation
+```
+cd /tmp
+wget https://unicorn.drogon.net/wiringpi-2.46-1.deb
+sudo dpkg -i wiringpi-2.46-1.deb
+```
+
 ## Build
 ### Components
 |Name              |Cost |Amount|Total|Link |
