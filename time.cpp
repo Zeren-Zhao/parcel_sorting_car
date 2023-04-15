@@ -9,14 +9,14 @@ void wait_time(unsigned int milliseconds, std::function<void()> callback)
     struct timeval timeout;
     int ret;
 
-    // 创建一个空的文件描述符集合
+    // Create an empty set of file descriptors
     FD_ZERO(&fds);
 
-    // 设置超时时间为1秒
+    // Set the overtime be 1s
     timeout.tv_sec = 0;
     timeout.tv_usec = milliseconds*1000;
 
-    // 等待超时或文件描述符变为可读
+    // Wait for timeout or file descriptor to become readable
     ret = select(0, NULL, NULL, &fds, &timeout);
     callback();
 
@@ -28,13 +28,13 @@ void waittime(unsigned int milliseconds)
     struct timeval timeout;
     int ret;
 
-    // 创建一个空的文件描述符集合
+    // Create an empty set of file descriptors
     FD_ZERO(&fds);
 
-    // 设置超时时间为1秒
+    // Set the overtime be 1s
     timeout.tv_sec = 0;
     timeout.tv_usec = milliseconds*1000;
 
-    // 等待超时或文件描述符变为可读
+    // Wait for timeout or file descriptor to become readable
     ret = select(0, NULL, NULL, &fds, &timeout);
 }
