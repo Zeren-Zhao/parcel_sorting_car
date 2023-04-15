@@ -8,7 +8,7 @@ int main() {
 
     int car_pos1[2] = {3, 4};
     int car_pos2[2] = {-3, 3};
-    int car_pos3[2] = {2, 2};
+    int car_pos3[2] = {1, 1};
     int source_pos[2] = {0, 0};
 
     //初始化变量
@@ -33,12 +33,12 @@ int main() {
         if (current_1 == 0 && current_2 == 0 && location.empty()) {
             std::lock_guard<std::mutex> lock(mtx);
             location = info;
-            cout << "cao" << endl;
         }
     };
 
     std::thread threadA([&]() {
         while (true) {
+            cout << "sao" << endl;
             detector.DetectQR(callback);
         }
     });
@@ -52,6 +52,10 @@ int main() {
                 std::lock_guard<std::mutex> lock(mtx);
 
                 machine.run();
+                
+                cout << current_1 << endl;
+                cout << location << endl;
+                cout << current_2 << endl;
             }
         }
     });
