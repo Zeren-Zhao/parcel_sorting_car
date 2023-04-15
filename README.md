@@ -11,7 +11,7 @@ With the rapid development of e-commerce business, the courier industry has also
 
 ## Project Description
 
-Our project is to develop a parcel sorting car based on `Raspberry Pi 3B`, which aims to achieve the initial regional sorting of parcels. The project uses a `camera` for QR code recognition, and after it scans the parcel identification code it makes a determination of the area it is going to, and then navigates to the area where the parcel needs to be unloaded based on the coordinates of its current location.The location information will be obtained based on the statistics of the `timer threads`. After reaching the area, it performs the unloading operation. After the action is executed, it reverts back to the starting point to wait for the next parcel to be scanned.
+Our project is to develop a parcel sorting car based on `Raspberry Pi 3B`, which aims to achieve the initial regional sorting of parcels. The project uses a `camera` for QR code recognition, and after it scans the parcel identification code it makes a determination of the area it is going to, and then navigates to the area where the parcel needs to be unloaded based on the coordinates of its current location.The location information will be obtained based on the statistics of the `timer function` build by using select(). After reaching the area, it performs the unloading operation. After the action is executed, it reverts back to the starting point to wait for the next parcel to be scanned.
 
 ## Features
 
@@ -42,7 +42,7 @@ sudo apt-get install libopencv-dev libzbar-dev
 | -------------- | ---------| -----------|
 | [Shiguang Liu](https://github.com/Shiguang2737887?tab=overview&from=2023-01-01&to=2023-01-31)| 2737887L |Decision, Navigation & unloading function Designer | 
 | [Zeren Zhao](https://github.com/ZerenZhao)     | 2759260Z |Structure & Control Designer                       |
-| [Zhuohang Zhang](https://github.com/ZhuohangZhangs)| 2752741Z |QR Code Function Designer                          |
+| [Zhuohang Zhang](https://github.com/ZhuohangZhang)| 2752741Z |QR Code Function Designer                          |
 | Zeyu Zhang     | 2641089Z |Proposals and procurement management               |
 
 </div>
