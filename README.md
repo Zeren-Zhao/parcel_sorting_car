@@ -34,7 +34,7 @@ sudo spt-get update
 sudo apt-get install libopencv-dev libzbar-dev
 ```
 ## System Flow Chart
-
+![Image text](https://raw.github.com/Zeren-Zhao/parcel_sorting_car/main/Images/Connection.png)
 ## Project Contributers
 <div align="center">
 
