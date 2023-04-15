@@ -36,9 +36,9 @@ sudo apt-get install libopencv-dev libzbar-dev
 
 | Name | Student ID | Role |
 | -------------- | ---------| -----------|
-| Shiguang Liu   | 2737887L |Decision, Navigation Designer | 
-| Zeren Zhao     | 2759260Z |Structure & Control Designer  |
-| Zhuohang Zhang | 2752741Z |QR Code Function Designer     |
-| Zeyu Zhang     | 2641089Z |Unloading Function Designer   |
+| Shiguang Liu   | 2737887L |Decision, Navigation & unloading function Designer | 
+| Zeren Zhao     | 2759260Z |Structure & Control Designer                       |
+| Zhuohang Zhang | 2752741Z |QR Code Function Designer                          |
+| Zeyu Zhang     | 2641089Z |Proposals and procurement management               |
 
 </div>
