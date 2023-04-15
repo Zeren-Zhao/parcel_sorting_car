@@ -57,19 +57,19 @@ private:
     int& current_2;
     string& location;
 
-    enum State { SCAN, NAVIGATION, DISCHARGE, DECIDE }; // 状态类型
-    State currentState; // 当前状态
+    enum State { SCAN, NAVIGATION, DISCHARGE, DECIDE }; // Declare the state type
+    State currentState; // Current state
 
 
     int a = 0; // 参数a
-    int current_pos[2], goal_pos[2];//小车的现在位置以及目标位置
-    int car1[2], car2[2], car3[2];//三个目的地的位置
+    int current_pos[2], goal_pos[2];//Current position & Goal position of the car
+    int car1[2], car2[2], car3[2];//Coordinates of the three target locations
     int source[2];//取货处
 
-    void scanState(); // 扫描二维码状态
-    void navigationState(); // 路径规划状态
-    void dischargeState(); // 卸货状态
-    void decideState();//决定状态（目的地是哪：car1， car2， car3， source）
+    void scanState(); // Scan QR code state
+    void navigationState(); // Path planning state
+    void dischargeState(); // discharge state
+    void decideState(); // decide state (where is the destination: car1, car2, car3, source)
 };
 
 void StateMachine::run() {
@@ -102,7 +102,7 @@ void StateMachine::dischargeState() {
     cout << "discharge" << endl;
     discharge();
     a = 1;
-    currentState = DECIDE; //新的状态
+    currentState = DECIDE; //Next state
 }
 
 void StateMachine::navigationState() {
@@ -127,14 +127,12 @@ void StateMachine::navigationState() {
         driver.retreat();
         wait_time(y, stop_callback);
 
-        //driver.stop();
     }
     else{
         current_2 = goal_pos[1];
         driver.forward();
         wait_time(y, stop_callback);
 
-        //driver.stop();
     }
 
     if(current_1 >= goal_pos[0]) {
@@ -142,15 +140,12 @@ void StateMachine::navigationState() {
         driver.left();
         wait_time(turn, stop_callback);
 
-        //driver.stop();
         driver.forward();
         wait_time(x, stop_callback);
 
-        //driver.stop();
         driver.right();
         wait_time(turn, stop_callback);
 
-        //driver.stop();
     }
     else {
         current_1 = goal_pos[0];
@@ -158,17 +153,14 @@ void StateMachine::navigationState() {
 
         wait_time(turn, stop_callback);
 
-        //driver.stop();
         driver.forward();
 
         wait_time(x, stop_callback);
 
-        //driver.stop();
         driver.left();
 
         wait_time(turn, stop_callback);
 
-        //driver.stop();
     }
 
     if (a == 0){
