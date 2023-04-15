@@ -54,8 +54,11 @@ public:
 
                     // 调用回调函数
                     callback(symbol->get_data());
+                    
                 }
+                
             }
+            
 
             imshow("QRCode Detector", frame);
 
@@ -63,6 +66,8 @@ public:
             if (waitKey(30) >= 0) {
                 break;
             }
+            break;
+            
         }
     }
 
