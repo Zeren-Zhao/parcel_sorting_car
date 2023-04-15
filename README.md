@@ -45,7 +45,7 @@ Please go: https://github.com/Zeren-Zhao/parcel_sorting_car/wiki/1.-Build
 ## Hardware
 
 ## Unit test
-
+Find detaile here: https://github.com/Zeren-Zhao/parcel_sorting_car/wiki/3.-Unit-test
 ## Project Contributers
 
 | Name | Student ID | Role |
