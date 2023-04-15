@@ -1,4 +1,7 @@
 # Parcel Sorting Car
+
+Replacing the current manual sorting of couriers in warehouses with a 'Parcel Sorting Car'. The courier sorting trolley is a machine trolley that automatically scans QR codes and sorts couriers according to the information. The vehicle continuously scans the QR code with a camera and after analysing the code transports the courier to the designated location and returns back. (The use of other equipment for sorting purposes can also be achieved in some cases and the 'Parcel Sorting Car' can be considered a model for a courier sorting system.)
+
 ## Background
 
 With the rapid development of e-commerce business, the courier industry has also become increasingly prosperous. In the development of the courier industry, parcels sorting cars play a vital role. First of all, parcels sorting cars can automatically sort couriers according to their destinations, reducing the time and labor costs of manual operations and improving work efficiency. parcels sorting cars can automatically detect and correct errors during the sorting process, reducing the rate of human-caused sorting errors and improving the accuracy of courier operations and customer satisfaction. With the development of the courier industry, the volume of orders is increasing and the sorting tasks are becoming more and more complex, so the traditional manual sorting method can no longer meet the business needs.
