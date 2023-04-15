@@ -32,6 +32,19 @@ graph TD
 ```
 sudo spt-get update
 sudo apt-get install libopencv-dev libzbar-dev
+
+mkdir build
+cd build
+cp /path/to/CMakeLists.txt .
+
+cmake ..
+
+make
+
+./final_try
+
+
+
 ```
 ## System Flow Chart
 ![Image text](https://raw.github.com/Zeren-Zhao/parcel_sorting_car/main/Images/Connection.png)
