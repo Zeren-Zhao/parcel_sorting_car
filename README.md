@@ -22,20 +22,13 @@ Our project is to develop a parcel sorting car based on `Raspberry Pi 3B`, which
 
 ## Installation
 
-```
-graph TD
-    A[Scan] -->B(Go Shopping)
-
-```
-
-### Enviromental Check
 1.Get the update and install the opencv and zbar libraries
 ```
 sudo spt-get update
 sudo apt-get install libopencv-dev libzbar-dev
-···
+```
 2.Compile source files with Cmake
-···
+```
 mkdir build
 cd build
 cp /path/to/CMakeLists.txt .
