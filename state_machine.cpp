@@ -5,36 +5,11 @@
 #include <cstdlib>
 #include "control.cpp"
 #include <softPwm.h>
-
+#include <functional>
+#include "time.cpp"
 #define PIN 15 
 using namespace std;
 
-
-
-
-void wait_time(unsigned int milliseconds)
-{
-    fd_set fds;
-    struct timeval timeout;
-    int ret;
-
-    // 创建一个空的文件描述符集合
-    FD_ZERO(&fds);
-
-    // 设置超时时间为1秒
-    timeout.tv_sec = 0;
-    timeout.tv_usec = milliseconds*1000;
-
-    // 等待超时或文件描述符变为可读
-    ret = select(0, NULL, NULL, &fds, &timeout);
-
-    // 如果返回0表示已经超时
-    if (ret == 0) {
-        printf("Delay for %d ms.\n", milliseconds);
-    } else if (ret == -1) {
-        printf("Delay failed.\n");
-    }
-}
 
 int discharge()
 {
@@ -46,13 +21,13 @@ int discharge()
 
     for (int i = 0; i <= 70; i++) {
         softPwmWrite(PIN, i);
-        wait_time(20); 
+        waittime(5); 
     }
 
 
     for (int i = 70; i >= 0; i--) {
         softPwmWrite(PIN, i);
-        wait_time(20); 
+        waittime(5); 
     }
 
     return 0;
@@ -143,54 +118,57 @@ void StateMachine::navigationState() {
     cout << x << endl;
     cout << y << endl;
     
+    std::function<void()> stop_callback = [&driver](){
+        driver.stop();
+        };
 
     if(current_2 >= goal_pos[1]) {
         current_2 = goal_pos[1];
         driver.retreat();
-        wait_time(y);
+        wait_time(y, stop_callback);
 
-        driver.stop();
+        //driver.stop();
     }
     else{
         current_2 = goal_pos[1];
         driver.forward();
-        wait_time(y);
+        wait_time(y, stop_callback);
 
-        driver.stop();
+        //driver.stop();
     }
 
     if(current_1 >= goal_pos[0]) {
         current_1 = goal_pos[0];
         driver.left();
-        wait_time(turn);
+        wait_time(turn, stop_callback);
 
-        driver.stop();
+        //driver.stop();
         driver.forward();
-        wait_time(x);
+        wait_time(x, stop_callback);
 
-        driver.stop();
+        //driver.stop();
         driver.right();
-        wait_time(turn);
+        wait_time(turn, stop_callback);
 
-        driver.stop();
+        //driver.stop();
     }
     else {
         current_1 = goal_pos[0];
         driver.right();
 
-        wait_time(turn);
+        wait_time(turn, stop_callback);
 
-        driver.stop();
+        //driver.stop();
         driver.forward();
 
-        wait_time(x);
+        wait_time(x, stop_callback);
 
-        driver.stop();
+        //driver.stop();
         driver.left();
 
-        wait_time(turn);
+        wait_time(turn, stop_callback);
 
-        driver.stop();
+        //driver.stop();
     }
 
     if (a == 0){
