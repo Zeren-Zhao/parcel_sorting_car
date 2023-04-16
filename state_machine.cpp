@@ -107,23 +107,19 @@ void StateMachine::dischargeState() {
 
 void StateMachine::navigationState() {
     cout << "navigation" << endl;
-    cout << goal_pos[0] << endl;
-    cout << goal_pos[1] << endl;
     wiringPiSetup();
     L298N driver(26, 29, 27, 28);
     int x,y,turn;
-    x = abs(goal_pos[0]-current_1)*500;
-    y = abs(goal_pos[1]-current_2)*500;
-    turn = 470;
-    cout << x << endl;
-    cout << y << endl;
+    x = abs(goal_pos[0]-current_1)*500; // Set the time for x axis
+    y = abs(goal_pos[1]-current_2)*500; // Set the time for y axis
+    turn = 520;                         //The time for the car turning 90°
     
     std::function<void()> stop_callback = [&driver](){
         driver.stop();
         };
-
+    //Compare the coordinate relationship between the initial point and the target point for y axis
     if(current_2 >= goal_pos[1]) {
-        current_2 = goal_pos[1];
+        current_2 = goal_pos[1];       
         driver.retreat();
         wait_time(y, stop_callback);
 
@@ -134,7 +130,7 @@ void StateMachine::navigationState() {
         wait_time(y, stop_callback);
 
     }
-
+    //Compare the coordinate relationship between the initial point and the target point for x axis
     if(current_1 >= goal_pos[0]) {
         current_1 = goal_pos[0];
         driver.left();
@@ -150,15 +146,12 @@ void StateMachine::navigationState() {
     else {
         current_1 = goal_pos[0];
         driver.right();
-
         wait_time(turn, stop_callback);
-
+        
         driver.forward();
-
         wait_time(x, stop_callback);
-
+        
         driver.left();
-
         wait_time(turn, stop_callback);
 
     }
@@ -173,11 +166,11 @@ void StateMachine::navigationState() {
 
 void StateMachine::decideState() {
     cout << "decision" << endl;
-    string information = location.substr(0, location.find(" "));
+    string information = location.substr(0, location.find(" ")); //Extract the area code before the space
 
     if (a==1){
         for (int i = 0; i < 2; i++) {
-            goal_pos[i] = source[i];
+            goal_pos[i] = source[i];   // Update destination coordinates to initial position
         }
         currentState = NAVIGATION;
     }
@@ -186,14 +179,14 @@ void StateMachine::decideState() {
         if (information.compare("G1") == 0|information.compare("G2") == 0|information.compare("G3") == 0){
             cout << "Place A" << endl;
             for (int i = 0; i < 2; i++) {
-                goal_pos[i] = car1[i];
+                goal_pos[i] = car1[i];    // Update destination coordinates to zone 1
             }
             currentState = NAVIGATION;
         }
         else if (information.compare("G4") == 0|information.compare("G5") == 0|information.compare("G6") == 0){
             cout << "Place B" << endl;
             for (int i = 0; i < 2; i++) {
-                goal_pos[i] = car2[i];
+                goal_pos[i] = car2[i];   // Update destination coordinates to zone 2
             }
 
             currentState = NAVIGATION;
@@ -201,7 +194,7 @@ void StateMachine::decideState() {
         else if (information.compare("G12") == 0|information.compare("G13") == 0|information.compare("G67") == 0){
             cout << "Place C"<< endl;
             for (int i = 0; i < 2; i++) {
-                goal_pos[i] = car3[i];
+                goal_pos[i] = car3[i];    // Update destination coordinates to zone 3
             }
             currentState = NAVIGATION;
         }
