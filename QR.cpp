@@ -12,7 +12,7 @@ class QRCodeScanner {
 public:
     using Callback = std::function<void(const std::string&)>;
 
-    QRCodeScanner() {}
+    QRCodeScanner(queue<Mat>& frame_queue) : frame_queue_(frame_queue) {}
 
     void DetectQR(const Callback& callback) {
         ImageScanner scanner;
@@ -21,9 +21,9 @@ public:
         unordered_set<string> scanned_qrcodes;
 
         while (true) {
-            if (!frame_queue.empty()) {
-                Mat frame = frame_queue.front();
-                frame_queue.pop();
+            if (!frame_queue_.empty()) {
+                Mat frame = frame_queue_.front();
+                frame_queue_.pop();
 
                 Mat gray;
                 cvtColor(frame, gray, COLOR_BGR2GRAY);
@@ -51,6 +51,8 @@ public:
             }
         }
     }
-};
 
+private:
+    queue<Mat>& frame_queue_;
+};
 
