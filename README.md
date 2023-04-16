@@ -110,7 +110,13 @@ Find detaile here: https://github.com/Zeren-Zhao/parcel_sorting_car/wiki/3.-Unit
 ## Project Contributers
 
 ## How to use
-
+1. Open terminal
+2. Use ``cd`` get in your folder
+3.
+```
+g++ -pthread main.cpp -o main -lwiringPi -lzbar -usr/local/include/opencv2 -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_imgcodecs -lopencv_video -lopencv_videoio
+./main
+```
 
 | Name | Student ID | Role |
 | -------------- | ---------| -----------|
