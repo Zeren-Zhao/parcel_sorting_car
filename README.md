@@ -104,6 +104,9 @@ if there is the map of gpio, you have installed the wiringPi successfully
 
 ## Software Structure
 
+## System Flowchart
+![Image text](https://raw.github.com/Zeren-Zhao/parcel_sorting_car/main/Images/Flowchart.png)
+
 ## User Case
 ![Image text](https://raw.github.com/Zeren-Zhao/parcel_sorting_car/main/Images/User_case.png)
 
