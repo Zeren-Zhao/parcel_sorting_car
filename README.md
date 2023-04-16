@@ -110,7 +110,7 @@ if there is the map of gpio, you have installed the wiringPi successfully
 ## Unit test
 Find detaile here: https://github.com/Zeren-Zhao/parcel_sorting_car/wiki/3.-Unit-test
 ## How to use
-1. Down load the code
+1. Download the code
 2. Extract all
 3. Open terminal
 4. Use ``cd`` get in the folder which contains the main.cpp
