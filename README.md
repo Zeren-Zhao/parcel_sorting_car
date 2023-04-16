@@ -107,8 +107,6 @@ if there is the map of gpio, you have installed the wiringPi successfully
 
 ## Unit test
 Find detaile here: https://github.com/Zeren-Zhao/parcel_sorting_car/wiki/3.-Unit-test
-## Project Contributers
-
 ## How to use
 1. Open terminal
 2. Use ``cd`` get in your folder
@@ -117,6 +115,7 @@ Find detaile here: https://github.com/Zeren-Zhao/parcel_sorting_car/wiki/3.-Unit
 g++ -pthread main.cpp -o main -lwiringPi -lzbar -usr/local/include/opencv2 -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_imgcodecs -lopencv_video -lopencv_videoio
 ./main
 ```
+## Project Contributers
 
 | Name | Student ID | Role |
 | -------------- | ---------| -----------|
