@@ -9,6 +9,9 @@
 int main() {
 
     int camera_index = 0;
+    queue<Mat> frame_queue;
+    mutex mtx;
+    condition_variable cv;
     
     int car_pos1[2] = {3, 4};
     int car_pos2[2] = {-3, 3};
@@ -19,9 +22,9 @@ int main() {
     string location = "";
     int current_1 = 0;
     int current_2 = 0;
-    mutex mtx;
+
     
-    QRCodeScanner scanner;
+    QRCodeScanner scanner(frame_queue);
 
     StateMachine machine(car_pos1, car_pos2, car_pos3, source_pos, current_1, current_2, location);
 
@@ -33,7 +36,7 @@ int main() {
     };
 
 
-    thread capture_thread(CaptureFrames, camera_index);
+    thread capture_thread(CaptureFrames, camera_index, ref(frame_queue), ref(mtx), ref(cv));
     thread detection_thread(&QRCodeScanner::DetectQR, &scanner, callback);
 
     capture_thread.join();
