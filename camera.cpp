@@ -6,9 +6,7 @@
 using namespace std;
 using namespace cv;
 
-queue<Mat> frame_queue;
-
-void CaptureFrames(int camera_index) {
+void CaptureFrames(int camera_index, queue<Mat>& frame_queue, mutex& mtx, condition_variable& cv) {
     VideoCapture cap(camera_index);
     if (!cap.isOpened()) {
         cerr << "Failed to open the camera." << endl;
@@ -18,9 +16,11 @@ void CaptureFrames(int camera_index) {
     while (true) {
         Mat frame;
         cap >> frame;
-        if (frame.empty()) {
-            break;
-        }
+
+        unique_lock<mutex> lock(mtx);
         frame_queue.push(frame);
+        lock.unlock();
+
+        cv.notify_one();
     }
 }
