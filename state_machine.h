@@ -2,8 +2,8 @@
 // Created by apple on 2023/4/13.
 //
 
-#ifndef TEST2_STATE_MACHINE_H
-#define TEST2_STATE_MACHINE_H
+#ifndef STATE_MACHINE_H
+#define STATE_MACHINE_H
 
 #include <iostream>
 #include <string>
@@ -33,4 +33,4 @@ private:
 };
 
 
-#endif //TEST2_STATE_MACHINE_H
+#endif //STATE_MACHINE_H
