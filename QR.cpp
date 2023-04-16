@@ -3,6 +3,7 @@
 #include <functional>
 #include <zbar.h>
 #include <opencv2/opencv.hpp>
+#include <fstream>
 
 using namespace std;
 using namespace cv;
