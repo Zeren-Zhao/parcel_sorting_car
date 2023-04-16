@@ -52,7 +52,7 @@ public:
 
                     scanned_qrcodes.insert(symbol->get_data());
 
-                    // 调用回调函数
+                    // Calling the callback function
                     callback(symbol->get_data());
                     
                 }
