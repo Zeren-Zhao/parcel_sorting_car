@@ -73,6 +73,11 @@ cd /tmp
 wget https://unicorn.drogon.net/wiringpi-2.46-1.deb
 sudo dpkg -i wiringpi-2.46-1.deb
 ```
+3. To test if you have already installed wiringPi, you can open terminal
+```
+gpio readall
+```
+if there is the map of gpio, you have installed the wiringPi successfully
 
 ## Build
 ### Components
@@ -103,6 +108,9 @@ sudo dpkg -i wiringpi-2.46-1.deb
 ## Unit test
 Find detaile here: https://github.com/Zeren-Zhao/parcel_sorting_car/wiki/3.-Unit-test
 ## Project Contributers
+
+## How to use
+
 
 | Name | Student ID | Role |
 | -------------- | ---------| -----------|
