@@ -104,6 +104,8 @@ if there is the map of gpio, you have installed the wiringPi successfully
 
 ## Software Structure
 
+## User Case
+![Image text](https://raw.github.com/Zeren-Zhao/parcel_sorting_car/main/Images/User_case.png)
 
 ## Unit test
 Find detaile here: https://github.com/Zeren-Zhao/parcel_sorting_car/wiki/3.-Unit-test
