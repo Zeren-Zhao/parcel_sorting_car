@@ -22,34 +22,17 @@ int main() {
 
     auto callback = [&](const std::string& info) {
         if (current_1 == 0 && current_2 == 0 && location.empty()) {
-            std::lock_guard<std::mutex> lock(mtx);
             location = info;
-            cout << "cao" << endl;
+            machine.run();
         }
     };
 
-    std::thread threadA([&]() {
-        while (true) {
-            detector.DetectQR(callback);
-        }
-    });
 
-    std::thread threadB([&]() {
-        // It is only awakened when the string loc!=""
-        while (true) {
+    while (true) {
+        detector.DetectQR(callback);
+    }
 
-            if (!location.empty()) {
 
-                std::lock_guard<std::mutex> lock(mtx);
-
-                machine.run();
-            }
-        }
-    });
-
-    // Waiting for thread A and thread B to complete
-    threadA.join();
-    threadB.join();
 
     return 0;
 }
