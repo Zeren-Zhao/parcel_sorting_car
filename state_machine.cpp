@@ -207,6 +207,8 @@ void StateMachine::decideState() {
         }
         else{
             cout << "Wrong zip code" << endl;
+            location.clear();
+            stopFlag = true;
             currentState = SCAN;
         }
     }
