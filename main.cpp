@@ -27,7 +27,9 @@ int main() {
         }
     };
 
-
+    /*We use polling here to detect the QR code, which is necessary because this is a
+    real-time detection program that constantly detects the presence of a QR code from the video
+    stream returned by the camera, and the event triggering after the detection of the QR code is implemented through the callback function*/
     while (true) {
         detector.DetectQR(callback);
     }
