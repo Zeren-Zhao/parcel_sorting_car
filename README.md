@@ -122,7 +122,10 @@ Find detaile here: https://github.com/Zeren-Zhao/parcel_sorting_car/wiki/3.-Unit
 6. Execute the ``make`` command to compile and generate the executable file 
 7. Execute the program by entering the path and name of the executable file in the terminal
 ```
-
+cd the/path/of/the/project
+cmake .
+make
+./name of the executable file
 ```
 ## Project Contributers
 
