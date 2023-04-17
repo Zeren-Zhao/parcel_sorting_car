@@ -1,23 +1,29 @@
 cmake_minimum_required(VERSION 3.18.4)
-project(final_try)
+project(try)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(final_try main.cpp QR.cpp state_machine.cpp)
+add_executable(try main.cpp time.cpp control.cpp QR.cpp state_machine.cpp)
 
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
 
 find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
 target_link_libraries(${PROJECT_NAME} ${OpenCV_LIBS})
 
 
-find_package(ZBar REQUIRED)
-include_directories(${ZBAR_INCLUDE_DIRS})
-target_link_libraries(${PROJECT_NAME} ${ZBAR_LIBRARIES})
+include_directories(
+/usr/lib
+/usr/include
+)
 
 
-find_package(wiringPi REQUIRED)
-include_directories(${wiringPi_INCLUDE_DIRS})
+set(LIBZBAR_PATH /usr/lib/arm-linux-gnueabihf/) 
+find_library(LIBZBAR_LIBRARY NAMES zbar HINTS ${LIBZBAR_PATH})
+target_link_libraries(try ${LIBZBAR_LIBRARY})
+
+
+find_library(wiringPi_LIB wiringPi)
 target_link_libraries(${PROJECT_NAME} ${wiringPi_LIB})
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")

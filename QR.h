@@ -4,14 +4,17 @@
 #pragma once
 
 #include <string>
+#include <functional>
 
 class QRCodeScanner {
 public:
     QRCodeScanner(int camera_index = 0);
-    std::string DetectQR();
+    
+    void DetectQR(std::function<void(const std::string&)> callback);
 
 private:
     int camera_index_;
+
 };
 
 
