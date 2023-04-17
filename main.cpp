@@ -1,8 +1,8 @@
 #include <iostream>
 #include <thread>
 #include <mutex>
-#include "state_machine.cpp"
-#include "QR.cpp"
+#include "state_machine.h"
+#include "QR.h"
 #include <string>
 int main() {
 
