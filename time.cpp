@@ -1,7 +1,6 @@
-#include <iostream>
+#include "time.h"
 #include <chrono>
 #include <cstdlib>
-#include <functional>
 
 void wait_time(unsigned int milliseconds, std::function<void()> callback)
 {
