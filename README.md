@@ -117,11 +117,12 @@ Find detaile here: https://github.com/Zeren-Zhao/parcel_sorting_car/wiki/3.-Unit
 1. Download the code
 2. Extract all
 3. Open terminal
-4. Use ``cd`` get in the folder which contains the main.cpp
-5.
+4. Use ``cd`` in the terminal to enter the project directory
+5. Execute the ``cmake .`` command to generate the Makefile
+6. Execute the ``make`` command to compile and generate the executable file 
+7. Execute the program by entering the path and name of the executable file in the terminal
 ```
-g++ -pthread main.cpp -o main -lwiringPi -lzbar -usr/local/include/opencv2 -lopencv_core -lopencv_highgui -lopencv_imgproc -lopencv_imgcodecs -lopencv_video -lopencv_videoio
-./main
+
 ```
 ## Project Contributers
 
