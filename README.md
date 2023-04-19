@@ -134,7 +134,7 @@ make
 | [Shiguang Liu](https://github.com/Shiguang2737887?tab=overview&from=2023-01-01&to=2023-01-31)| 2737887L |Decision, Navigation & unloading function Designer | 
 | [Zeren Zhao](https://github.com/ZerenZhao)     | 2759260Z |Structure & Control Designer                |
 | [Zhuohang Zhang](https://github.com/ZhuohangZhang)| 2752741Z |QR Code Function Designer                |
-| [Zeyu Zhang](https://github.com/zeu1)   | 2641089Z |Proposals and procurement management               |
+| [Zeyu Zhang](https://github.com/zeu1)   | 2816269Z |Proposals and Servo management               |
 
 
 ## Social Media
